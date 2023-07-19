@@ -18,9 +18,10 @@ import PySimpleGUI as sg
 import os
 import magic
 import shutil
-
+import string
+import unicodedata
 mime = magic.Magic(mime=True)
-
+printable = set(string.printable)
 
 #********************* LAND OF FUNCTIONS ***********************
 
@@ -28,7 +29,11 @@ def walk_dirs(input_folder, output_folder):
     shutil.copytree(src=input_folder,dst=output_folder, dirs_exist_ok=True)
     for root, dirs, files in os.walk(output_folder):      # walks folders and subfolders
         for filename in files:
-            file = os.path.join(root,filename)
+            newfilename = (str(filename.encode('ascii', errors='ignore').decode('utf-8')))      #   removes nonascii unicode characters for Magic library
+            old_path = os.path.join(root,filename)          #   used for the file rename below
+            file = os.path.join(root,newfilename)           #   new path without illegal characters
+            os.rename(src=old_path,dst=file)                #   rename to path without illegal charcters
+
             if "." not in file[-6:]:                    #   looks at last 6 characters to see if file extension not present, if not present it checks mime type
                 filetype = mime.from_file(file)  
                 extension = filetype.split('/')   
