@@ -1,17 +1,4 @@
-#python3 script to walk directory and strip first or last bytes from each file under that directory
-#It also adds 'AMENDED' to the front of the file name so you know what is new
-#This does not look at file headers. It is not smart. 
-#
-#   Tool workflow
-#  1. ID a target folder containing files that need bytes removed
-#   |
-#  2. Choose an output folder to store changed files
-#   |
-#  3. Select # of bytes to remove from start OR end of files
-#   |
-#   <OPTIONAL>
-#   |
-#  4. Preview window to see raw binary of a sample file
+#python3 
 
 import os
 import PySimpleGUI as sg
