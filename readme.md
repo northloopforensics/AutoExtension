@@ -12,3 +12,5 @@ AutoExtension will iterate through a provided folder and add missing file extens
 The tool will copy the entire contents of the input folder and identify the files inside that lack a file extension.
 
 It will then check the file type of the extension-less file and rename the copied file using the correct extension. 
+
+Please post any errors or suggestions in Issues.  Thanks!
