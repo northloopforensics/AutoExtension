@@ -13,4 +13,6 @@ The tool will copy the entire contents of the input folder and identify the file
 
 It will then check the file type of the extension-less file and rename the copied file using the correct extension. 
 
+Version .4 adds support the file extension ".unknown". 
+
 Please post any errors or suggestions in Issues.  Thanks!
